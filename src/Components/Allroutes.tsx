@@ -1,5 +1,6 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
+import BizzLogin from "./AuthPage/BizzLogin";
 import BizzSignUp from "./AuthPage/BizzSignUp";
 import Login from "./AuthPage/Login";
 import Signup from "./AuthPage/Signup";
@@ -17,6 +18,10 @@ const Allroutes = () => {
     {
       path: "/businessregister",
       element: <BizzSignUp />,
+    },
+    {
+      path: "/businesslogin",
+      element: <BizzLogin />,
     },
   ]);
 
