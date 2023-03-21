@@ -109,14 +109,7 @@ const Signup = () => {
               <input placeholder="Confirm password" />
             </Inputs>
           </Box>
-          <div
-            style={{
-              display: "flex",
-              marginLeft: "60px",
-              marginTop: "20px",
-              alignItems: "center",
-            }}
-          >
+          <Div>
             <input
               type="checkbox"
               style={{ width: "15px", height: "15px", background: "#f9f4ff" }}
@@ -132,23 +125,8 @@ const Signup = () => {
               <span style={{ color: "blue" }}>Terms and Conditions</span> &
               <span style={{ color: "blue" }}>Privacy Policy</span>.
             </p>
-          </div>
-          <button
-            style={{
-              width: "140px",
-              height: "48px",
-              marginLeft: "60px",
-              border: "0",
-              backgroundColor: "#8246f3",
-              color: "white",
-              borderRadius: "10px",
-              marginTop: "31px",
-              fontSize: "16px",
-              cursor: "pointer",
-            }}
-          >
-            Create Account
-          </button>
+          </Div>
+          <Button>Create Account</Button>
         </Right>
       </Container>
     </div>
@@ -156,6 +134,45 @@ const Signup = () => {
 };
 
 export default Signup;
+
+const Button = styled.button`
+  width: 170px;
+  height: 48px;
+  margin-left: 60px;
+  border: 0;
+  background-color: #8246f3;
+  color: white;
+  border-radius: 10px;
+  margin-top: 31px;
+  font-size: 16px;
+  cursor: pointer;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    margin-top: 20px;
+    width: 80%;
+  }
+`;
+
+const Div = styled.div`
+  display: flex;
+  margin-left: 60px;
+  margin-top: 20px;
+  align-items: center;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    font-size: 10px;
+    margin-top: 10px;
+    width: 80%;
+  }
+
+  p {
+    @media screen and (max-width: 960px) {
+      font-size: 10px;
+    }
+  }
+`;
 
 const Inputs = styled.div`
   background-color: #f9f4ff;
@@ -187,6 +204,16 @@ const Box = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 23px;
   margin-top: 43px;
+
+  @media screen and (max-width: 960px) {
+    width: 90%;
+    height: 480px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 60px);
+    margin: 0;
+    margin-top: 20px;
+  }
 `;
 
 const Img = styled.img`
@@ -197,6 +224,13 @@ const Img = styled.img`
   position: absolute;
   left: 35%;
   bottom: 1px;
+
+  @media screen and (max-width: 960px) {
+    position: static;
+    height: 210px;
+    margin-top: 60px;
+    margin-left: 120px;
+  }
 
   :hover {
     animation: bounce 0.5s;
@@ -216,6 +250,10 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
+
+  @media screen and (max-width: 960px) {
+    display: block;
+  }
 `;
 const Left = styled.div`
   width: 40%;
@@ -225,6 +263,10 @@ const Left = styled.div`
   align-items: center;
   flex-direction: column;
   position: relative;
+
+  @media screen and (max-width: 960px) {
+    width: 100%;
+  }
   h4 {
     color: white;
     font-size: 21px;
@@ -238,6 +280,10 @@ const Left = styled.div`
     font-size: 44px;
     text-align: center;
     margin-top: 50px;
+
+    @media screen and (max-width: 960px) {
+      font-size: 30px;
+    }
   }
   p {
     color: white;
@@ -246,6 +292,10 @@ const Left = styled.div`
     text-align: center;
     width: 65%;
     font-size: 23px;
+
+    @media screen and (max-width: 960px) {
+      font-size: 18px;
+    }
   }
 `;
 const Right = styled.div`
@@ -253,6 +303,12 @@ const Right = styled.div`
     margin-top: 60px;
     margin-left: 60px;
     font-size: 36px;
+
+    @media screen and (max-width: 960px) {
+      margin: 0;
+      margin-top: 10px;
+      font-size: 25px;
+    }
   }
 
   p {
@@ -260,5 +316,19 @@ const Right = styled.div`
     margin-top: 45px;
     font-size: 20px;
     font-family: 600;
+
+    @media screen and (max-width: 960px) {
+      margin: 0;
+      margin-top: 10px;
+      font-size: 25px;
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;

@@ -100,14 +100,7 @@ const BizzSignUp = () => {
               <input placeholder="Confirm password" />
             </Inputs>
           </Box>
-          <div
-            style={{
-              display: "flex",
-              marginLeft: "60px",
-              marginTop: "20px",
-              alignItems: "center",
-            }}
-          >
+          <Div>
             <input
               type="checkbox"
               style={{ width: "15px", height: "15px", background: "#f9f4ff" }}
@@ -123,7 +116,7 @@ const BizzSignUp = () => {
               <span style={{ color: "blue" }}>Terms and Conditions</span> &
               <span style={{ color: "blue" }}>Privacy Policy</span>.
             </p>
-          </div>
+          </Div>
           <button
             style={{
               width: "140px",
@@ -147,6 +140,19 @@ const BizzSignUp = () => {
 };
 
 export default BizzSignUp;
+
+const Div = styled.div`
+  display: flex;
+  margin-left: 60px;
+  margin-top: 20px;
+  align-items: center;
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    font-size: 10px;
+    margin-top: 10px;
+    width: 80%;
+  }
+`;
 
 const Inputs = styled.div`
   background-color: #f9f4ff;
