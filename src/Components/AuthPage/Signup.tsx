@@ -30,9 +30,9 @@ const Signup = () => {
             }}
           />
           <h4>MAVERICK</h4>
-          <h1>
+          <H1>
             Let’s Get <br /> You Started
-          </h1>
+          </H1>
           <p>
             You’re a few steps away. Fill the required form and start trading
             like a boss 😎
@@ -134,6 +134,30 @@ const Signup = () => {
 };
 
 export default Signup;
+
+const H1 = styled.h1`
+  color: white;
+  font-size: 44px;
+  text-align: center;
+  margin-top: 50px;
+  animation: typing 4s steps(20);
+  white-space: nowrap;
+  overflow: hidden;
+  /* border-right: 3px solid black; */
+
+  @media screen and (max-width: 960px) {
+    font-size: 30px;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+`;
 
 const Button = styled.button`
   width: 170px;
@@ -275,16 +299,6 @@ const Left = styled.div`
     margin-top: 30px;
   }
 
-  h1 {
-    color: white;
-    font-size: 44px;
-    text-align: center;
-    margin-top: 50px;
-
-    @media screen and (max-width: 960px) {
-      font-size: 30px;
-    }
-  }
   p {
     color: white;
     margin: 0;
