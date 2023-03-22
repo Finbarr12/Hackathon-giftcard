@@ -28,9 +28,9 @@ const Login = () => {
             }}
           />
           <h4>MAVERICK</h4>
-          <h1>
+          <H1>
             Glad to have <br /> you back
-          </h1>
+          </H1>
           <p>
             Glad to have you back We are glad to have you back ☺️, Let’s get you
             trading
@@ -98,6 +98,29 @@ const Login = () => {
 
 export default Login;
 
+const H1 = styled.h1`
+  color: white;
+  font-size: 44px;
+  text-align: center;
+  margin-top: 50px;
+  animation: typing 4s steps(20);
+  white-space: nowrap;
+  overflow: hidden;
+  /* border-right: 3px solid black; */
+
+  @media screen and (max-width: 960px) {
+    font-size: 30px;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+`;
 const P = styled.p`
   margin: 0;
   margin-left: 60px;
@@ -256,16 +279,16 @@ const Left = styled.div`
     margin-top: 30px;
   }
 
-  h1 {
-    color: white;
-    font-size: 44px;
-    text-align: center;
-    margin-top: 50px;
+  // h1 {
+  // //   color: white;
+  // //   font-size: 44px;
+  // //   text-align: center;
+  // //   margin-top: 50px;
 
-    @media screen and (max-width: 960px) {
-      font-size: 30px;
-    }
-  }
+  // //   @media screen and (max-width: 960px) {
+  // //     font-size: 30px;
+  // //   }
+  // }
   p {
     color: white;
     margin: 0;

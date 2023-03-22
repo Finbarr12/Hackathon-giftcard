@@ -63,55 +63,18 @@ const BizzLogin = () => {
             />
             <input placeholder="Password" />
           </Inputs>
-          <div
-            style={{
-              display: "flex",
-              marginLeft: "60px",
-              marginTop: "20px",
-              alignItems: "center",
-            }}
-          >
+          <Div>
             <input
               type="checkbox"
               style={{ width: "15px", height: "15px", background: "#f9f4ff" }}
             />
-            <p
-              style={{
-                margin: "0",
-                marginLeft: "10px",
-                fontSize: "15px",
-              }}
-            >
-              Always remember me
-            </p>
-          </div>
-          <button
-            style={{
-              width: "160px",
-              height: "48px",
-              marginLeft: "60px",
-              border: "0",
-              backgroundColor: "#8246f3",
-              color: "white",
-              borderRadius: "10px",
-              marginTop: "40px",
-              fontSize: "16px",
-              cursor: "pointer",
-            }}
-          >
-            Log in
-          </button>
-          <p
-            style={{
-              margin: "0",
-              marginLeft: "60px",
-              fontSize: "15px",
-              marginTop: "20px",
-            }}
-          >
+            <p>Always remember me</p>
+          </Div>
+          <Button>Log in</Button>
+          <P>
             I don't have an account.{" "}
             <span style={{ color: "blue" }}>Create one</span>
-          </p>
+          </P>
         </Right>
       </Container>
     </div>
@@ -119,6 +82,51 @@ const BizzLogin = () => {
 };
 
 export default BizzLogin;
+
+const Button = styled.button`
+  width: 170px;
+  height: 48px;
+  margin-left: 60px;
+  border: 0;
+  background-color: #8246f3;
+  color: white;
+  border-radius: 10px;
+  margin-top: 31px;
+  font-size: 16px;
+  cursor: pointer;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    margin-top: 20px;
+    width: 80%;
+  }
+`;
+
+const Div = styled.div`
+  display: flex;
+  margin-left: 60px;
+  margin-top: 20px;
+  align-items: center;
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    font-size: 15px;
+    width: 80%;
+  }
+`;
+
+const P = styled.p`
+  margin: 0;
+  margin-left: 60px;
+  font-size: 15px;
+  margin-top: 20px;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    font-size: 15px;
+    margin-top: 10px;
+    width: 80%;
+  }
+`;
 
 const Inputs = styled.div`
   background-color: #f9f4ff;
@@ -129,6 +137,12 @@ const Inputs = styled.div`
   height: 55px;
   margin-bottom: 20px;
   margin-left: 60px;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    width: 80%;
+    margin-bottom: 20px;
+  }
 
   input {
     flex: 1;
@@ -151,6 +165,20 @@ const Right = styled.div`
     margin-left: 60px;
     font-size: 36px;
     margin-bottom: 60px;
+
+    @media screen and (max-width: 960px) {
+      margin: 0;
+      margin-top: 10px;
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -175,12 +203,23 @@ const Img = styled.img`
       transform: translate(-20%, -20%) scale(1.2);
     }
   }
+
+  @media screen and (max-width: 960px) {
+    position: static;
+    height: 210px;
+    margin-top: 60px;
+    margin-left: 120px;
+  }
 `;
 
 const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
+
+  @media screen and (max-width: 960px) {
+    display: block;
+  }
 `;
 const Left = styled.div`
   width: 40%;
@@ -190,6 +229,10 @@ const Left = styled.div`
   align-items: center;
   flex-direction: column;
   position: relative;
+
+  @media screen and (max-width: 960px) {
+    width: 100%;
+  }
   h4 {
     color: white;
     font-size: 21px;
@@ -203,6 +246,21 @@ const Left = styled.div`
     font-size: 44px;
     text-align: center;
     margin-top: 50px;
+    animation: typing 4s steps(20);
+    white-space: nowrap;
+    overflow: hidden;
+
+    @media screen and (max-width: 960px) {
+      font-size: 30px;
+    }
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
   }
   p {
     color: white;
@@ -211,5 +269,9 @@ const Left = styled.div`
     text-align: center;
     width: 65%;
     font-size: 23px;
+
+    @media screen and (max-width: 960px) {
+      font-size: 18px;
+    }
   }
 `;

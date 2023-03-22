@@ -30,9 +30,9 @@ const BizzSignUp = () => {
             }}
           />
           <h4>MAVERICK</h4>
-          <h1>
+          <H1>
             Register Your <br /> Business Today!
-          </h1>
+          </H1>
           <p>
             You’re a few steps away. Fill the required form and start trading
             like a boss 😎
@@ -117,22 +117,9 @@ const BizzSignUp = () => {
               <span style={{ color: "blue" }}>Privacy Policy</span>.
             </p>
           </Div>
-          <button
-            style={{
-              width: "140px",
-              height: "48px",
-              marginLeft: "60px",
-              border: "0",
-              backgroundColor: "#8246f3",
-              color: "white",
-              borderRadius: "10px",
-              marginTop: "31px",
-              fontSize: "16px",
-              cursor: "pointer",
-            }}
-          >
+          <Button>
             Create Account
-          </button>
+          </Button>
         </Right>
       </Container>
     </div>
@@ -140,6 +127,49 @@ const BizzSignUp = () => {
 };
 
 export default BizzSignUp;
+
+const Button = styled.button`
+  width: 170px;
+  height: 48px;
+  margin-left: 60px;
+  border: 0;
+  background-color: #8246f3;
+  color: white;
+  border-radius: 10px;
+  margin-top: 31px;
+  font-size: 16px;
+  cursor: pointer;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    margin-top: 20px;
+    width: 80%;
+  }
+`;
+
+const H1 = styled.h1`
+  color: white;
+  font-size: 44px;
+  text-align: center;
+  margin-top: 50px;
+  animation: typing 4s steps(20);
+  white-space: nowrap;
+  overflow: hidden;
+  /* border-right: 3px solid black; */
+
+  @media screen and (max-width: 960px) {
+    font-size: 30px;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+`;
 
 const Div = styled.div`
   display: flex;
@@ -184,6 +214,16 @@ const Box = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 23px;
   margin-top: 43px;
+
+  @media screen and (max-width: 960px) {
+    width: 90%;
+    height: 450px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 70px);
+    margin: 0;
+    margin-top: 20px;
+  }
 `;
 
 const Img = styled.img`
@@ -207,12 +247,23 @@ const Img = styled.img`
       transform: translate(-20%, -20%) scale(1.2);
     }
   }
+
+  @media screen and (max-width: 960px) {
+    position: static;
+    height: 210px;
+    margin-top: 60px;
+    margin-left: 120px;
+  }
 `;
 
 const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
+
+  @media screen and (max-width: 960px) {
+    display: block;
+  }
 `;
 const Left = styled.div`
   width: 40%;
@@ -222,6 +273,10 @@ const Left = styled.div`
   align-items: center;
   flex-direction: column;
   position: relative;
+
+  @media screen and (max-width: 960px) {
+    width: 100%;
+  }
   h4 {
     color: white;
     font-size: 21px;
@@ -230,12 +285,6 @@ const Left = styled.div`
     margin-top: 30px;
   }
 
-  h1 {
-    color: white;
-    font-size: 44px;
-    text-align: center;
-    margin-top: 50px;
-  }
   p {
     color: white;
     margin: 0;
@@ -243,6 +292,10 @@ const Left = styled.div`
     text-align: center;
     width: 65%;
     font-size: 23px;
+
+    @media screen and (max-width: 960px) {
+      font-size: 18px;
+    }
   }
 `;
 const Right = styled.div`
@@ -250,6 +303,12 @@ const Right = styled.div`
     margin-top: 60px;
     margin-left: 60px;
     font-size: 36px;
+
+    @media screen and (max-width: 960px) {
+      margin: 0;
+      margin-top: 10px;
+      font-size: 25px;
+    }
   }
 
   p {
@@ -257,5 +316,18 @@ const Right = styled.div`
     margin-top: 45px;
     font-size: 20px;
     font-family: 600;
+
+    @media screen and (max-width: 960px) {
+      margin: 0;
+      margin-top: 10px;
+      font-size: 25px;
+      font-size: 18px;
+    }
+  }
+  @media screen and (max-width: 960px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
