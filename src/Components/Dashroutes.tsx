@@ -10,6 +10,7 @@ import UserWallet from "./userDashboard/User.Wallet";
 import UserNotify from "./userDashboard/User.Notify";
 import UserSupport from "./userDashboard/User.Support";
 import UserAccount from "./userDashboard/User.Account";
+import Full from "./Home/Full";
 
 const DashboardRoutes = () => {
   const [show, setShow] = React.useState(false);
@@ -45,7 +46,9 @@ const DashboardRoutes = () => {
   return (
     <div style={{ overflow: "hidden" }}>
       <Shower onClick={toggle}>
-        <TbArrowsLeftRight />
+        <Hold>
+          <TbArrowsLeftRight />
+        </Hold>
       </Shower>
       <div
         style={{
@@ -55,7 +58,10 @@ const DashboardRoutes = () => {
           overflow: "hidden",
         }}
       >
-        <Mobile>{show ? <Sidebar sow={show} /> : null}</Mobile>
+        <Mobile>
+          {/* {show ? <Full sow={show} /> : null */}
+          {show ? <Sidebar sow={show} /> : null}
+        </Mobile>
         <Container>
           <Sidebar2 />
         </Container>
@@ -66,6 +72,17 @@ const DashboardRoutes = () => {
 };
 
 export default DashboardRoutes;
+
+// const Full = styled.div``
+
+const Hold = styled.div`
+  display: none;
+
+  @media screen and (max-width: 960px) {
+    display: block;
+    z-index: 4;
+  }
+`;
 
 const Container = styled.div`
   display: none;

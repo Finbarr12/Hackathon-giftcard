@@ -223,7 +223,7 @@ const Sidebar: React.FC<iDisplay> = ({ sow }) => {
             fontSize: "7px",
           }}
         >
-          <TiStarFullOutline />
+          {/* <TiStarFullOutline /> */}
         </div>
 
         <div
@@ -283,6 +283,8 @@ const Container = styled.div<{ dsp: string }>`
   flex-direction: column;
   position: relative;
   transition: all 350ms;
+  position: absolute;
+  z-index: 30;
 `;
 const Logo = styled.div`
   color: white;

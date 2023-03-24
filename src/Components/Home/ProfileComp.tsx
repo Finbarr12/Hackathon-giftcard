@@ -1,107 +1,167 @@
-import React from "react";
-import styled from "styled-components";
-import { AiFillEye } from "react-icons/ai";
+import React, { useState } from "react";
+import styled, { keyframes } from "styled-components";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import card from "../Assets/card.svg";
 import spiral from "../Assets/robo.svg";
 import two from "../Assets/two.svg";
+import { Waypoint } from "react-waypoint";
 
 const ProfileComp = () => {
-  return (
-    <div style={{ overflowX: "hidden" }}>
-      <Container>
-        <Mid>
-          <Prof>
-            <p>
-              Welcome,
-              <span style={{ fontWeight: "650", textTransform: "capitalize" }}>
-                Team Mauvericks
-              </span>
-            </p>
-            <Hold>
-              <h5>Available balance</h5>
-              <AiFillEye
-                style={{
-                  fontSize: "26px",
-                  marginTop: "2px",
+  const [show, setShow] = useState(false);
 
-                  marginLeft: "30px",
-                }}
-              />
-            </Hold>
-            <div
-              style={{ fontSize: "30px", color: "blue", fontWeight: "bolder" }}
-            >
-              ******
-            </div>
-            <button>Withdraw</button>
-          </Prof>
-          <h4>Quick Actions</h4>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "column",
-              width: "100%",
-            }}
-          >
-            <Card>
-              <img
-                src={card}
-                alt=""
-                style={{
-                  position: "absolute",
-                  bottom: "1px",
-                  height: "290px",
-                }}
-              />
-              <Sec>
-                <h1>Create Gift Cards</h1>
-                <p>Create gift cards and sell</p>
-                <button>Generate Gift Card</button>
-              </Sec>
-            </Card>
-            <Held>
-              <Box bg="#FDF3E7" cl="#EF9837" bc="#EF9837">
-                <img src={spiral} alt="" style={{ height: "40px" }} />
-                <h2>Top Gift Cards</h2>
-                <p>Know your gift card’s value at a glance.</p>
-                <button>See top Gift cards</button>
-              </Box>
-              <Box bg="#f9f4ff" cl="blue" bc="#8246f3">
-                <Circle>
-                  <img src={two} alt="" style={{ height: "40px" }} />
-                </Circle>
-                <h2>Check Rates</h2>
-                <p>Know your gift card’s value at a glance.</p>
-                <button>Check rates</button>
-              </Box>
-            </Held>
-          </div>
-          <p
-            style={{
-              marginTop: "40px",
-              marginLeft: "300px",
-              fontSize: "19px",
-              fontWeight: "bold",
-            }}
-          >
-            Notifications
-          </p>
-          <NottHold>
-            <Lists>
-              <p style={{ margin: "0", marginLeft: "20px", fontWeight: "600" }}>
-                Sylvia bought your gift card at $3000.00
+  const Toggle = () => {
+    setShow(!show);
+  };
+
+  const [visible, setVisible] = useState(false);
+
+  const handleWaypointEnter = () => {
+    setVisible(true);
+  };
+  return (
+    <Waypoint onEnter={handleWaypointEnter}>
+      <Div
+        style={{
+          overflowX: "hidden",
+          visibility: visible ? "visible" : "hidden",
+        }}
+      >
+        <Container>
+          <Mid>
+            <Prof>
+              <p>
+                Welcome,
+                <span
+                  style={{ fontWeight: "650", textTransform: "capitalize" }}
+                >
+                  Team Mauvericks
+                </span>
               </p>
-            </Lists>
-          </NottHold>
-        </Mid>
-      </Container>
-    </div>
+              <Hold>
+                <h5>Available balance</h5>
+
+                {show ? (
+                  <AiFillEyeInvisible
+                    onClick={Toggle}
+                    style={{
+                      fontSize: "26px",
+                      marginTop: "2px",
+                      marginLeft: "30px",
+                      cursor: "pointer",
+                    }}
+                  />
+                ) : (
+                  <AiFillEye
+                    onClick={Toggle}
+                    style={{
+                      fontSize: "26px",
+                      marginTop: "2px",
+                      marginLeft: "30px",
+                      cursor: "pointer",
+                    }}
+                  />
+                )}
+              </Hold>
+              {show ? (
+                <div
+                  style={{
+                    fontSize: "30px",
+                    color: "blue",
+                    fontWeight: "bolder",
+                  }}
+                >
+                  NGN 0
+                </div>
+              ) : (
+                <div
+                  style={{
+                    fontSize: "30px",
+                    color: "blue",
+                    fontWeight: "bolder",
+                  }}
+                >
+                  ******
+                </div>
+              )}
+              <button>Withdraw</button>
+            </Prof>
+            <h4>Quick Actions</h4>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                width: "100%",
+              }}
+            >
+              <Card>
+                <img src={card} alt="" />
+                <Sec>
+                  <h1>Create Gift Cards</h1>
+                  <p>Create gift cards and sell</p>
+                  <button>Generate Gift Card</button>
+                </Sec>
+              </Card>
+              <Held>
+                <Box bg="#FDF3E7" cl="#EF9837" bc="#EF9837">
+                  <img src={spiral} alt="" style={{ height: "40px" }} />
+                  <h2>Top Gift Cards</h2>
+                  <p>Know your gift card’s value at a glance.</p>
+                  <button>See top Gift cards</button>
+                </Box>
+                <Box bg="#f9f4ff" cl="blue" bc="#8246f3">
+                  <Circle>
+                    <img src={two} alt="" style={{ height: "40px" }} />
+                  </Circle>
+                  <h2>Check Rates</h2>
+                  <p>Know your gift card’s value at a glance.</p>
+                  <button>Check rates</button>
+                </Box>
+              </Held>
+            </div>
+            <P>Notifications</P>
+            <NottHold>
+              <Lists>
+                <p>Sylvia bought your gift card at $3000.00</p>
+              </Lists>
+            </NottHold>
+          </Mid>
+        </Container>
+      </Div>
+    </Waypoint>
   );
 };
 
 export default ProfileComp;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const Div = styled.div`
+  animation: ${fadeIn} 1s ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+`;
+
+const P = styled.div`
+  margin-top: 40px;
+  margin-left: 300px;
+  font-size: 19px;
+  font-weight: bold;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    margin-left: 20px;
+    margin-top: 40px;
+  }
+`;
 
 const Transc = styled.div`
   display: flex;
@@ -127,6 +187,24 @@ const Lists = styled.div`
   display: flex;
   align-items: center;
   margin-left: 265px;
+
+  p {
+    margin: 0;
+    margin-left: 20px;
+    font-weight: 600;
+
+    @media screen and (max-width: 960px) {
+      margin: 0;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    width: 90%;
+    margin-top: 15px;
+  }
 `;
 
 const NottHold = styled.div`
@@ -150,10 +228,20 @@ const Circle = styled.div`
 
 const Sec = styled.div`
   margin-left: 570px;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    margin-left: 25px;
+    margin-top: 15px;
+  }
   h1 {
     margin: 0;
     color: white;
     font-size: 45px;
+
+    @media screen and (max-width: 960px) {
+      font-size: 23px;
+    }
   }
   button {
     width: 150px;
@@ -164,12 +252,24 @@ const Sec = styled.div`
     border-radius: 10px;
     margin-top: 25px;
     font-weight: 600;
+
+    @media screen and (max-width: 960px) {
+      width: 63%;
+      height: 35px;
+      font-size: 13px;
+      margin-top: 20px;
+    }
   }
   p {
     margin: 0;
     margin-top: 3px;
     font-size: 16px;
     color: white;
+
+    @media screen and (max-width: 960px) {
+      margin: 0;
+      font-size: 14px;
+    }
   }
 `;
 
@@ -183,12 +283,21 @@ const Box = styled.div<{ bg: string; cl: string; bc: string }>`
   justify-content: center;
   flex-direction: column;
 
+  @media screen and (max-width: 960px) {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
   h2 {
     margin: 0;
     margin-top: 15px;
     font-size: 36px;
     margin-left: 40px;
     color: ${({ cl }) => cl};
+
+    @media screen and (max-width: 960px) {
+      font-size: 25px;
+    }
   }
 
   p {
@@ -219,6 +328,13 @@ const Held = styled.div`
   justify-content: space-between;
   margin-bottom: 10px;
   margin-left: 265px;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    width: 90%;
+    display: block;
+    margin-top: 25px;
+  }
 `;
 
 const Card = styled.div`
@@ -231,6 +347,24 @@ const Card = styled.div`
   align-items: center;
   position: relative;
   margin-left: 265px;
+
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    width: 90%;
+    display: block;
+    margin-top: 20px;
+  }
+
+  img {
+    position: absolute;
+    bottom: 1px;
+    height: 290px;
+
+    @media screen and (max-width: 960px) {
+      height: 61%;
+      /* width: 95%; */
+    }
+  }
 `;
 
 const Hold = styled.div`
@@ -258,6 +392,12 @@ const Prof = styled.div`
   position: sticky;
   top: 0.2px;
 
+  @media screen and (max-width: 960px) {
+    margin: 0;
+    width: 100%;
+    padding-bottom: 23px;
+  }
+
   p {
     margin: 0;
     font-size: 14px;
@@ -273,6 +413,12 @@ const Prof = styled.div`
     border-radius: 10px;
     margin-left: 85%;
     margin-bottom: 20px;
+
+    @media screen and (max-width: 500px) {
+      margin: 0;
+      margin-top: 20px;
+      width: 80%;
+    }
   }
 `;
 
@@ -304,6 +450,12 @@ const Mid = styled.div`
     margin-top: 40px;
     margin-left: 300px;
     font-size: 19px;
+
+    @media screen and (max-width: 960px) {
+      margin: 0;
+      margin-left: 20px;
+      margin-top: 40px;
+    }
   }
 `;
 const Left = styled.div`
