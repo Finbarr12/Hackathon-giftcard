@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import card from "../Assets/card.svg";
 import spiral from "../Assets/robo.svg";
@@ -13,142 +13,113 @@ const ProfileComp = () => {
     setShow(!show);
   };
 
-  const [visible, setVisible] = useState(false);
-
-  const handleWaypointEnter = () => {
-    setVisible(true);
-  };
   return (
-    <Waypoint onEnter={handleWaypointEnter}>
-      <Div
-        style={{
-          overflowX: "hidden",
-          visibility: visible ? "visible" : "hidden",
-        }}
-      >
-        <Container>
-          <Mid>
-            <Prof>
-              <p>
-                Welcome,
-                <span
-                  style={{ fontWeight: "650", textTransform: "capitalize" }}
-                >
-                  Team Mauvericks
-                </span>
-              </p>
-              <Hold>
-                <h5>Available balance</h5>
+    <div style={{ overflowX: "hidden" }}>
+      <Container>
+        <Mid>
+          <Prof>
+            <p>
+              Welcome,
+              <span style={{ fontWeight: "650", textTransform: "capitalize" }}>
+                Team Mauvericks
+              </span>
+            </p>
+            <Hold>
+              <h5>Available balance</h5>
 
-                {show ? (
-                  <AiFillEyeInvisible
-                    onClick={Toggle}
-                    style={{
-                      fontSize: "26px",
-                      marginTop: "2px",
-                      marginLeft: "30px",
-                      cursor: "pointer",
-                    }}
-                  />
-                ) : (
-                  <AiFillEye
-                    onClick={Toggle}
-                    style={{
-                      fontSize: "26px",
-                      marginTop: "2px",
-                      marginLeft: "30px",
-                      cursor: "pointer",
-                    }}
-                  />
-                )}
-              </Hold>
               {show ? (
-                <div
+                <AiFillEyeInvisible
+                  onClick={Toggle}
                   style={{
-                    fontSize: "30px",
-                    color: "blue",
-                    fontWeight: "bolder",
+                    fontSize: "26px",
+                    marginTop: "2px",
+                    marginLeft: "30px",
+                    cursor: "pointer",
                   }}
-                >
-                  NGN 0
-                </div>
+                />
               ) : (
-                <div
+                <AiFillEye
+                  onClick={Toggle}
                   style={{
-                    fontSize: "30px",
-                    color: "blue",
-                    fontWeight: "bolder",
+                    fontSize: "26px",
+                    marginTop: "2px",
+                    marginLeft: "30px",
+                    cursor: "pointer",
                   }}
-                >
-                  ******
-                </div>
+                />
               )}
-              <button>Withdraw</button>
-            </Prof>
-            <h4>Quick Actions</h4>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-                width: "100%",
-              }}
-            >
-              <Card>
-                <img src={card} alt="" />
-                <Sec>
-                  <h1>Create Gift Cards</h1>
-                  <p>Create gift cards and sell</p>
-                  <button>Generate Gift Card</button>
-                </Sec>
-              </Card>
-              <Held>
-                <Box bg="#FDF3E7" cl="#EF9837" bc="#EF9837">
-                  <img src={spiral} alt="" style={{ height: "40px" }} />
-                  <h2>Top Gift Cards</h2>
-                  <p>Know your gift card’s value at a glance.</p>
-                  <button>See top Gift cards</button>
-                </Box>
-                <Box bg="#f9f4ff" cl="blue" bc="#8246f3">
-                  <Circle>
-                    <img src={two} alt="" style={{ height: "40px" }} />
-                  </Circle>
-                  <h2>Check Rates</h2>
-                  <p>Know your gift card’s value at a glance.</p>
-                  <button>Check rates</button>
-                </Box>
-              </Held>
-            </div>
-            <P>Notifications</P>
-            <NottHold>
-              <Lists>
-                <p>Sylvia bought your gift card at $3000.00</p>
-              </Lists>
-            </NottHold>
-          </Mid>
-        </Container>
-      </Div>
-    </Waypoint>
+            </Hold>
+            {show ? (
+              <div
+                style={{
+                  fontSize: "30px",
+                  color: "blue",
+                  fontWeight: "bolder",
+                }}
+              >
+                NGN 0
+              </div>
+            ) : (
+              <div
+                style={{
+                  fontSize: "30px",
+                  color: "blue",
+                  fontWeight: "bolder",
+                }}
+              >
+                ******
+              </div>
+            )}
+            <button>Withdraw</button>
+          </Prof>
+          <h4>Quick Actions</h4>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
+              width: "100%",
+            }}
+          >
+            <Card>
+              <img src={card} alt="" />
+              <Sec>
+                <h1>Create Gift Cards</h1>
+                <p>Create gift cards and sell</p>
+                <button>Generate Gift Card</button>
+              </Sec>
+            </Card>
+            <Held>
+              <Box bg="#FDF3E7" cl="#EF9837" bc="#EF9837">
+                <img src={spiral} alt="" style={{ height: "40px" }} />
+                <h2>Top Gift Cards</h2>
+                <p>Know your gift card’s value at a glance.</p>
+                <button>See top Gift cards</button>
+              </Box>
+              <Box bg="#f9f4ff" cl="blue" bc="#8246f3">
+                <Circle>
+                  <img src={two} alt="" style={{ height: "40px" }} />
+                </Circle>
+                <h2>Check Rates</h2>
+                <p>Know your gift card’s value at a glance.</p>
+                <button>Check rates</button>
+              </Box>
+            </Held>
+          </div>
+          <P>Notifications</P>
+          <NottHold>
+            <Lists>
+              <p>Sylvia bought your gift card at $3000.00</p>
+            </Lists>
+          </NottHold>
+        </Mid>
+      </Container>
+    </div>
   );
 };
 
 export default ProfileComp;
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
-const Div = styled.div`
-  animation: ${fadeIn} 1s ease-in-out;
-  animation-fill-mode: forwards;
-  opacity: 0;
-`;
 
 const P = styled.div`
   margin-top: 40px;

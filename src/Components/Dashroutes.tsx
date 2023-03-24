@@ -58,10 +58,7 @@ const DashboardRoutes = () => {
           overflow: "hidden",
         }}
       >
-        <Mobile>
-          {/* {show ? <Full sow={show} /> : null */}
-          {show ? <Sidebar sow={show} /> : null}
-        </Mobile>
+        <Mobile>{show ? <Sidebar sow={show} /> : null}</Mobile>
         <Container>
           <Sidebar2 />
         </Container>
