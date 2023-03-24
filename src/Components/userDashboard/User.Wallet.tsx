@@ -113,11 +113,13 @@ const UserWallet = () => {
         <p>Withdrawal History</p>
         <HistoryHold>
           <Up>
-            <p>S/N</p>
-            <p>Logo</p>
-            <p>Company Name</p>
-            <p>Date and Time</p>
-            <p>Amount</p>
+            <Inn>
+              <p>S/N</p>
+              <p>Logo</p>
+              <p>Company Name</p>
+              <p>Date and Time</p>
+              <p>Amount</p>
+            </Inn>
           </Up>
           <All>
             <Two>
@@ -167,7 +169,7 @@ const UserWallet = () => {
             </Two>
             <Two>
               <p>1</p>
-              <Circle bc={`#${Math.floor(Math.random() * 1000 + 2345)}`}>
+              <Circle bc={`#${Math.floor(Math.random() * 1000 + 1543)}`}>
                 <p style={{ color: "white", fontSize: "18px" }}>I</p>
               </Circle>
               <p>Issac Enterprises</p>
@@ -183,8 +185,15 @@ const UserWallet = () => {
 
 export default UserWallet;
 
+const Inn = styled.div`
+  width: 91%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 const Two = styled.div`
-  width: 92%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -241,18 +250,13 @@ const Up = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   border-bottom: 1px solid silver;
   position: sticky;
   top: 0.1px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   background-color: white;
-
-  p {
-    margin-left: 15px;
-    margin-right: 15px;
-  }
 `;
 
 const HistoryHold = styled.div`
