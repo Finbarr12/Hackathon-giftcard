@@ -1,46 +1,35 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
-import Sidebar from "./BizzDashboard/Sidebar";
-import UserHistory from "./BizzDashboard/User.History";
-import UserHome from "./BizzDashboard/User.Home";
+import UserSidebarMob from "./UserSidebarMob";
 import styled from "styled-components";
 import { TbArrowsLeftRight } from "react-icons/tb";
-import Sidebar2 from "./BizzDashboard/Sidebar2";
-import UserWallet from "./BizzDashboard/User.Wallet";
-import UserNotify from "./BizzDashboard/User.Notify";
-import UserSupport from "./BizzDashboard/User.Support";
-import UserAccount from "./BizzDashboard/User.Account";
-import Full from "./Home/Full";
+import UserSidebarDesk from "./UserSidebardesk";
+import Home from "./Home";
+import Profile from "./Profile";
+import MyCards from "./MyCards";
+import Contact from "./Contact";
 
-const DashboardRoutes = () => {
+const UserDashRoute = () => {
   const [show, setShow] = React.useState(false);
   const toggle = () => {
     setShow(!show);
   };
   let element = useRoutes([
     {
-      path: "/dashboard",
-      element: <UserHome />,
+      path: "/userdashboard",
+      element: <Home />,
     },
     {
-      path: "/dashboard/history",
-      element: <UserHistory />,
+      path: "/dashboard/profile",
+      element: <Profile />,
     },
     {
-      path: "/dashboard/wallet",
-      element: <UserWallet />,
+      path: "/dashboard/mycards",
+      element: <MyCards />,
     },
     {
-      path: "/dashboard/notify",
-      element: <UserNotify />,
-    },
-    {
-      path: "/dashboard/support",
-      element: <UserSupport />,
-    },
-    {
-      path: "/dashboard/account",
-      element: <UserAccount />,
+      path: "/dashboard/contact",
+      element: <Contact />,
     },
   ]);
   return (
@@ -58,9 +47,9 @@ const DashboardRoutes = () => {
           overflow: "hidden",
         }}
       >
-        <Mobile>{show ? <Sidebar sow={show} /> : null}</Mobile>
+        <Mobile>{show ? <UserSidebarMob sow={show} /> : null}</Mobile>
         <Container>
-          <Sidebar2 />
+          <UserSidebarDesk />
         </Container>
         {element}
       </div>
@@ -68,7 +57,7 @@ const DashboardRoutes = () => {
   );
 };
 
-export default DashboardRoutes;
+export default UserDashRoute;
 
 // const Full = styled.div``
 

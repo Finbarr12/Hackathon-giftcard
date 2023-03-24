@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import ProfileComp from "../Home/ProfileComp";
 import { AiFillEye, AiFillEyeInvisible, AiOutlinePlus } from "react-icons/ai";
 import { MdOutlineCancel } from "react-icons/md";
+import { Waypoint } from "react-waypoint";
 
 const UserWallet = () => {
   const [show, setShow] = useState(false);
@@ -22,7 +23,7 @@ const UserWallet = () => {
   return (
     <Container style={{ overflowX: "hidden", width: "100%", height: "100vh" }}>
       {popup ? (
-        <Popup>
+        <Popup popup={popup}>
           <MdOutlineCancel
             onClick={HidePop}
             style={{
@@ -355,10 +356,16 @@ const Card = styled.div`
     color: white;
     background-color: blueviolet;
     margin-top: 80px;
+    cursor: pointer;
+
+    :hover {
+      transform: scale(0.99);
+      transition: all 350ms ease-in-out;
+    }
   }
 `;
 
-const Popup = styled.div`
+const Popup = styled.div<{ popup: boolean }>`
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.6);
@@ -367,6 +374,14 @@ const Popup = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+
+  ${({ popup }) =>
+    popup &&
+    css`
+      opacity: 1;
+    `}
 `;
 
 const AddBox = styled.div`

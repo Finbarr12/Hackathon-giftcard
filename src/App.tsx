@@ -1,13 +1,14 @@
 import React from "react";
 import Allroutes from "./Components/Allroutes";
-import Signup from "./Components/AuthPage/Signup";
 import DashboardRoutes from "./Components/Dashroutes";
+import UserDashRoute from "./Components/UserDashboard/UserDashRoute";
 
 const App = () => {
   return (
     <div>
       <Allroutes />
-      <DashboardRoutes/>
+      <DashboardRoutes />
+      <UserDashRoute />
     </div>
   );
 };
